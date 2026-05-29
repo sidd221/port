@@ -16,16 +16,18 @@ export default function ContactFooterWrapper({ children }: { children: React.Rea
   return (
     <div className="relative bg-black dark text-slate-200">
       {/* 3D Background */}
-      <div className="absolute inset-0 z-0">
-        {loadSpline ? (
-          <Suspense fallback={
-            <div className="w-full h-full flex items-center justify-center bg-transparent">
-              <Loader2 className="w-10 h-10 text-indigo-500/50 animate-spin" />
-            </div>
-          }>
-            <Spline scene="https://prod.spline.design/2vxxSzctZoUBjT0Y/scene.splinecode" />
-          </Suspense>
-        ) : null}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="sticky top-0 h-screen w-full pointer-events-auto overflow-hidden">
+          {loadSpline ? (
+            <Suspense fallback={
+              <div className="w-full h-full flex items-center justify-center bg-transparent">
+                <Loader2 className="w-10 h-10 text-indigo-500/50 animate-spin" />
+              </div>
+            }>
+              <Spline scene="https://prod.spline.design/2vxxSzctZoUBjT0Y/scene.splinecode" />
+            </Suspense>
+          ) : null}
+        </div>
       </div>
       
       {/* Content wrapper that allows clicks to pass through empty space */}
