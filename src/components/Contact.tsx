@@ -19,7 +19,7 @@ export default function Contact() {
       {/* 3D Background */}
       <div className="absolute inset-0 z-0 overflow-hidden flex items-center justify-center">
         {loadSpline ? (
-          <div className="w-[150%] h-[150%] flex items-center justify-center">
+          <div className="w-[200%] h-[200%] flex items-center justify-center rotate-45">
             <Suspense fallback={
               <div className="w-full h-full flex items-center justify-center bg-transparent">
                 <Loader2 className="w-10 h-10 text-indigo-500/50 animate-spin" />
