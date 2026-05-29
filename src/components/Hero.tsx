@@ -47,7 +47,7 @@ export default function Hero() {
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-extrabold tracking-tighter mb-6 drop-shadow-sm">
             Hi, I'm <span className="text-gradient">Siddhant Sinha</span>
           </h1>
-          <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-white dark:text-slate-300 mb-8 max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-y-2 gap-x-3 sm:gap-x-4 drop-shadow-md">
+          <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-white dark:text-slate-300 mb-8 max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-y-2 gap-x-3 sm:gap-x-4 drop-shadow-[0_4px_10px_rgba(0,0,0,1)]">
             <span className="text-black dark:text-slate-300">SEO Expert</span>
             <span className="hidden md:inline text-white/20">|</span>
             <span>Web Developer</span>
