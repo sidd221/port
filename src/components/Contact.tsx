@@ -27,17 +27,16 @@ export default function Contact() {
           </Suspense>
         ) : null}
       </div>
-      {/* Frosted overlay to guarantee text readability against 3D scene */}
-      <div className="absolute inset-0 bg-white/60 dark:bg-black/60 backdrop-blur-sm z-0 pointer-events-none"></div>
+
 
       {/* Decorative gradient blob */}
       <div className="absolute -right-20 top-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-display font-bold mb-4">Let's Work Together</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-violet-600 mx-auto rounded-full"></div>
-          <p className="mt-6 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">
+        <div className="text-center mb-16 drop-shadow-lg">
+          <h2 className="text-4xl font-display font-bold mb-4 text-slate-900 dark:text-white">Let's Work Together</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-violet-600 mx-auto rounded-full drop-shadow-md"></div>
+          <p className="mt-6 text-slate-800 dark:text-slate-200 font-medium max-w-2xl mx-auto text-lg">
             Ready to start your next project? Drop me a message and let's discuss how I can help bring your digital vision to life.
           </p>
         </div>
