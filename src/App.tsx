@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import Certificates from './components/Certificates';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import SplineBackground from './components/SplineBackground';
 
 export default function App() {
   const [isDark, setIsDark] = useState(true);
@@ -27,11 +28,16 @@ export default function App() {
       
       <main>
         <Hero />
-        <About />
-        <Services />
-        <Projects />
-        <Certificates />
-        <Contact />
+        <div className="relative">
+          <SplineBackground />
+          <div className="relative z-10">
+            <About />
+            <Services />
+            <Projects />
+            <Certificates />
+            <Contact />
+          </div>
+        </div>
       </main>
 
       <Footer />

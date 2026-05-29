@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 export default function Contact() {
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
+      <div className="absolute inset-0 bg-white/60 dark:bg-black/60 backdrop-blur-md -z-10"></div>
       {/* Decorative gradient blob */}
       <div className="absolute -right-20 top-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
 
