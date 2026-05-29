@@ -33,7 +33,7 @@ export default function Footer() {
   };
   
   return (
-    <footer ref={footerRef} className="border-t border-white/5 bg-transparent py-12 relative pointer-events-none">
+    <footer ref={footerRef} className="border-t border-white/5 bg-black py-12 relative pointer-events-none dark text-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8 border-b border-slate-200 dark:border-white/5 pb-8">
           <a href="#home" className="flex items-center gap-2 cursor-pointer pointer-events-auto">
