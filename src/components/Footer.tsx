@@ -33,21 +33,21 @@ export default function Footer() {
   };
   
   return (
-    <footer ref={footerRef} className="border-t border-white/5 bg-transparent py-12 relative pointer-events-auto">
+    <footer ref={footerRef} className="border-t border-white/5 bg-transparent py-12 relative pointer-events-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8 border-b border-slate-200 dark:border-white/5 pb-8">
-          <a href="#home" className="flex items-center gap-2 cursor-pointer">
+          <a href="#home" className="flex items-center gap-2 cursor-pointer pointer-events-auto">
             <span className="text-2xl font-display font-bold text-slate-900 dark:text-white text-gradient">Siddhant Sinha</span>
           </a>
           
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-medium text-slate-600 dark:text-slate-400">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-medium text-slate-600 dark:text-slate-400 pointer-events-auto">
             <a href="#home" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</a>
             <a href="#about" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
             <a href="#skills" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</a>
             <a href="#portfolio" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Portfolio</a>
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex gap-4 pointer-events-auto">
             <a aria-label="GitHub" href="https://github.com/sidd221" target="_blank" rel="noreferrer" className="p-2.5 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full hover:bg-slate-50 dark:hover:bg-white/10 transition-colors text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">
               <Github size={20} />
             </a>
@@ -61,14 +61,14 @@ export default function Footer() {
         </div>
         
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500 dark:text-slate-500 font-medium">
-          <p>&copy; {currentYear} Siddhant Sinha. All rights reserved.</p>
-          <p>Designed By: Siddhant Sinha</p>
+          <p className="pointer-events-auto">&copy; {currentYear} Siddhant Sinha. All rights reserved.</p>
+          <p className="pointer-events-auto">Designed By: Siddhant Sinha</p>
         </div>
       </div>
 
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg shadow-blue-500/25 transition-all duration-300 z-50 flex items-center justify-center ${
+        className={`fixed bottom-6 right-6 p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg shadow-blue-500/25 transition-all duration-300 z-50 flex items-center justify-center pointer-events-auto ${
           showScrollTop ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-10 invisible'
         }`}
         aria-label="Scroll to top"
