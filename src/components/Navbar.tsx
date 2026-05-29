@@ -70,12 +70,12 @@ export default function Navbar({ toggleTheme, isDark }: { toggleTheme: () => voi
                 </a>
               );
             })}
-            <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-zinc-800 transition-colors" aria-label="Toggle theme">
+            <button onClick={toggleTheme} className="hidden p-2 rounded-full hover:bg-slate-200 dark:hover:bg-zinc-800 transition-colors" aria-label="Toggle theme">
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </button>
           </div>
           <div className="md:hidden flex items-center gap-4">
-             <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-zinc-800 transition-colors">
+             <button onClick={toggleTheme} className="hidden p-2 rounded-full hover:bg-slate-200 dark:hover:bg-zinc-800 transition-colors">
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </button>
             <button onClick={() => setIsOpen(!isOpen)} className="text-slate-900 dark:text-slate-50">
