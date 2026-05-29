@@ -32,7 +32,7 @@ export default function Contact() {
       {/* Decorative gradient blob */}
       <div className="absolute -right-20 top-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pointer-events-none">
         <div className="text-center mb-16 drop-shadow-lg">
           <h2 className="text-4xl font-display font-bold mb-4 text-slate-900 dark:text-white">Let's Work Together</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-violet-600 mx-auto rounded-full drop-shadow-md"></div>
@@ -41,7 +41,7 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="max-w-xl mx-auto flex flex-col justify-center">
+        <div className="max-w-xl mx-auto flex flex-col justify-center pointer-events-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
