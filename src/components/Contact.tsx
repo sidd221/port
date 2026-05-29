@@ -17,15 +17,17 @@ export default function Contact() {
   return (
     <section id="contact" className="py-16 md:py-24 relative overflow-hidden bg-black dark text-slate-200">
       {/* 3D Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden flex items-center justify-center">
         {loadSpline ? (
-          <Suspense fallback={
-            <div className="w-full h-full flex items-center justify-center bg-transparent">
-              <Loader2 className="w-10 h-10 text-indigo-500/50 animate-spin" />
-            </div>
-          }>
-            <Spline scene="https://prod.spline.design/2vxxSzctZoUBjT0Y/scene.splinecode" />
-          </Suspense>
+          <div className="w-[150%] h-[150%] flex items-center justify-center -translate-x-[15%] md:-translate-x-[10%]">
+            <Suspense fallback={
+              <div className="w-full h-full flex items-center justify-center bg-transparent">
+                <Loader2 className="w-10 h-10 text-indigo-500/50 animate-spin" />
+              </div>
+            }>
+              <Spline scene="https://prod.spline.design/2vxxSzctZoUBjT0Y/scene.splinecode" />
+            </Suspense>
+          </div>
         ) : null}
       </div>
 
