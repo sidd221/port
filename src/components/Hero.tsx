@@ -49,13 +49,13 @@ export default function Hero() {
           </h1>
           <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-white dark:text-slate-300 mb-8 max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-y-2 gap-x-3 sm:gap-x-4 drop-shadow-md">
             <span className="text-black dark:text-slate-300">SEO Expert</span>
-            <span className="hidden md:inline text-slate-300 dark:text-slate-700">|</span>
+            <span className="hidden md:inline text-white/20">|</span>
             <span>Web Developer</span>
-            <span className="hidden md:inline text-slate-300 dark:text-slate-700">|</span>
+            <span className="hidden md:inline text-white/20">|</span>
             <span>AI Solutions</span>
-            <span className="hidden md:inline text-slate-300 dark:text-slate-700">|</span>
+            <span className="hidden md:inline text-white/20">|</span>
             <span className="text-black dark:text-slate-300">Technical Support</span>
-            <span className="hidden md:inline text-slate-300 dark:text-slate-700">|</span>
+            <span className="hidden md:inline text-white/20">|</span>
             <span>Customer Support</span>
           </h2>
           <p className="text-lg font-medium text-white dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
