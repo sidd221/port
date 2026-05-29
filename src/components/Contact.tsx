@@ -1,37 +1,15 @@
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, MessageCircle, Loader2 } from 'lucide-react';
-import { Suspense, lazy, useState, useEffect } from 'react';
-
-const Spline = lazy(() => import('@splinetool/react-spline'));
+import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 
 export default function Contact() {
-  const [loadSpline, setLoadSpline] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoadSpline(true);
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-black dark text-slate-200">
-      {/* 3D Background */}
-      <div className="absolute inset-0 z-0">
-        {loadSpline ? (
-          <Suspense fallback={
-            <div className="w-full h-full flex items-center justify-center bg-transparent">
-              <Loader2 className="w-10 h-10 text-indigo-500/50 animate-spin" />
-            </div>
-          }>
-            <Spline scene="https://prod.spline.design/2vxxSzctZoUBjT0Y/scene.splinecode" />
-          </Suspense>
-        ) : null}
-      </div>
+    <section id="contact" className="py-24 relative overflow-hidden bg-transparent">
 
 
       {/* Decorative gradient blob */}
       <div className="absolute -right-20 top-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
 
+      {/* Empty space allows clicks to pass through to the 3D scene */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pointer-events-none">
         <div className="text-center mb-16 drop-shadow-lg">
           <h2 className="text-4xl font-display font-bold mb-4 text-slate-900 dark:text-white">Let's Work Together</h2>

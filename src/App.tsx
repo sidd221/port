@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import Certificates from './components/Certificates';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ContactFooterWrapper from './components/ContactFooterWrapper';
 
 export default function App() {
   const [isDark, setIsDark] = useState(true);
@@ -31,10 +32,12 @@ export default function App() {
         <Services />
         <Projects />
         <Certificates />
-        <Contact />
       </main>
 
-      <Footer />
+      <ContactFooterWrapper>
+        <Contact />
+        <Footer />
+      </ContactFooterWrapper>
     </div>
   );
 }
