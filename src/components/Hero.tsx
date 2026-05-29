@@ -47,18 +47,18 @@ export default function Hero() {
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-extrabold tracking-tighter mb-6 drop-shadow-sm">
             Hi, I'm <span className="text-gradient">Siddhant Sinha</span>
           </h1>
-          <h2 className="text-lg md:text-xl lg:text-2xl font-medium text-slate-700 dark:text-slate-300 mb-8 max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-y-2 gap-x-3 sm:gap-x-4 drop-shadow-sm">
+          <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-slate-900 dark:text-slate-300 mb-8 max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-y-2 gap-x-3 sm:gap-x-4 drop-shadow-md">
             <span>SEO Expert</span>
-            <span className="hidden md:inline text-slate-300 dark:text-slate-700">|</span>
+            <span className="hidden md:inline text-slate-400 dark:text-slate-700">|</span>
             <span>Web Developer</span>
-            <span className="hidden md:inline text-slate-300 dark:text-slate-700">|</span>
+            <span className="hidden md:inline text-slate-400 dark:text-slate-700">|</span>
             <span>AI Solutions</span>
-            <span className="hidden md:inline text-slate-300 dark:text-slate-700">|</span>
+            <span className="hidden md:inline text-slate-400 dark:text-slate-700">|</span>
             <span>Technical Support</span>
-            <span className="hidden md:inline text-slate-300 dark:text-slate-700">|</span>
+            <span className="hidden md:inline text-slate-400 dark:text-slate-700">|</span>
             <span>Customer Support</span>
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
+          <p className="text-lg font-medium text-slate-800 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
             I craft visually stunning, high-performing websites powered by modern tech and intelligent AI automation, helping progressive brands grow and dominate.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pointer-events-auto">
