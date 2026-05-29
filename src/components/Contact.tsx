@@ -34,9 +34,9 @@ export default function Contact() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pointer-events-none">
         <div className="text-center mb-16 drop-shadow-lg">
-          <h2 className="text-4xl font-display font-bold mb-4 text-slate-900 dark:text-white">Let's Work Together</h2>
+          <h2 className="text-4xl font-display font-bold mb-4 text-white dark:text-white">Let's Work Together</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-violet-600 mx-auto rounded-full drop-shadow-md"></div>
-          <p className="mt-6 text-slate-800 dark:text-slate-200 font-medium max-w-2xl mx-auto text-lg">
+          <p className="mt-6 text-white dark:text-slate-200 font-medium max-w-2xl mx-auto text-lg">
             Ready to start your next project? Drop me a message and let's discuss how I can help bring your digital vision to life.
           </p>
         </div>
