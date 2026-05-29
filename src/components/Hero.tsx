@@ -48,13 +48,13 @@ export default function Hero() {
             Hi, I'm <span className="text-gradient">Siddhant Sinha</span>
           </h1>
           <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-white dark:text-slate-300 mb-8 max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-y-2 gap-x-3 sm:gap-x-4 drop-shadow-md">
-            <span>SEO Expert</span>
+            <span className="text-black dark:text-slate-300">SEO Expert</span>
             <span className="hidden md:inline text-slate-300 dark:text-slate-700">|</span>
             <span>Web Developer</span>
             <span className="hidden md:inline text-slate-300 dark:text-slate-700">|</span>
             <span>AI Solutions</span>
             <span className="hidden md:inline text-slate-300 dark:text-slate-700">|</span>
-            <span>Technical Support</span>
+            <span className="text-black dark:text-slate-300">Technical Support</span>
             <span className="hidden md:inline text-slate-300 dark:text-slate-700">|</span>
             <span>Customer Support</span>
           </h2>
