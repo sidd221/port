@@ -15,7 +15,7 @@ export default function Contact() {
   }, []);
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-black dark text-slate-200">
+    <section id="contact" className="py-16 md:py-24 relative overflow-hidden bg-black dark text-slate-200">
       {/* 3D Background */}
       <div className="absolute inset-0 z-0">
         {loadSpline ? (
