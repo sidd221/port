@@ -1,0 +1,6 @@
+{
+  "name": "DevOS - Freelancer Portfolio",
+  "description": "A modern, responsive, and visually attractive personal portfolio website for a freelancer specializing in SEO, Web Development, and AI-powered solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
