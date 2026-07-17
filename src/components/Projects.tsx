@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ExternalLink, Github, FolderOpen } from 'lucide-react';
+import { ExternalLink, FolderOpen } from 'lucide-react';
 import { BorderRotate } from './ui/animated-gradient-border';
 
 const projects = [
