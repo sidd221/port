@@ -63,7 +63,7 @@ const projects = [
     title: "GrothSpace Digital (A Digital Marketing Company)",
     description: "Empowering brands with cutting‑edge digital marketing solutions built for growth.",
     image: "/grothspace.png",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Google AI Studio", "SEO", "GEO", "AI-Intigration", "HTML", "CSS3", "Javascript"],
+    technologies: ["React", "Vite", "Typescript", "Tailwind CSS", "Google AI Studio", "SEO", "GEO", "AI-Intigration", "HTML", "CSS3", "Javascript"],
     demoUrl: "https://grothspace-digital.vercel.app/",
     githubUrl: "#"
   }
