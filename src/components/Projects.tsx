@@ -58,6 +58,14 @@ const projects = [
     technologies: ["React", "TypeScript", "Tailwind CSS"],
     demoUrl: "https://maahomoeoclinic.vercel.app/",
     githubUrl: "#"
+  },
+  {
+    title: "GrothSpace Digital (A Digital Marketing Company)",
+    description: "Empowering brands with cutting‑edge digital marketing solutions built for growth.",
+    image: "/grothspace.png",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Google AI Studio", "SEO", "GEO", "AI-Intigration", "HTML", "CSS3", "Javascript"],
+    demoUrl: "https://grothspace-digital.vercel.app/",
+    githubUrl: "#"
   }
 ];
 
@@ -98,19 +106,19 @@ export default function Projects() {
                 <div className="glass-card overflow-hidden group border-none h-full bg-transparent flex flex-col rounded-[24px]">
                   <div className="relative h-[300px] overflow-hidden">
                     <div className="absolute inset-0 bg-slate-900/10 dark:bg-black/20 z-10 mix-blend-overlay"></div>
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
+                    <img
+                      src={project.image}
+                      alt={project.title}
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    
+
                     {/* Overlay Action Buttons */}
                     {project.demoUrl && project.demoUrl !== "#" && (
                       <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 flex items-center justify-center gap-6">
-                         <a title="Live Demo" href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="p-4 bg-white text-slate-900 rounded-full hover:scale-110 hover:shadow-xl hover:shadow-white/20 transition-all">
-                           <ExternalLink size={24} />
-                         </a>
+                        <a title="Live Demo" href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="p-4 bg-white text-slate-900 rounded-full hover:scale-110 hover:shadow-xl hover:shadow-white/20 transition-all">
+                          <ExternalLink size={24} />
+                        </a>
                       </div>
                     )}
                   </div>
@@ -132,9 +140,9 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
-        
+
         <div className="mt-12 flex justify-center">
-           <a href="https://github.com/sidd221" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-8 py-4 rounded-full glass font-bold hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors w-full md:w-auto justify-center">
+          <a href="https://github.com/sidd221" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-8 py-4 rounded-full glass font-bold hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors w-full md:w-auto justify-center">
             View All Projects <FolderOpen size={20} />
           </a>
         </div>
