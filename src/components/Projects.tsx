@@ -54,7 +54,7 @@ const projects = [
   {
     title: "Homoeopathic Clinic",
     description: "A modern web app for managing and booking homoeopathic clinic services.",
-    image: "/homoeo.png",
+    image: "/maahomoeo.png",
     technologies: ["React", "TypeScript", "Tailwind CSS"],
     demoUrl: "https://maahomoeoclinic.vercel.app/",
     githubUrl: "#"
