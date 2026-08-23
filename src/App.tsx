@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ScrollingMarquee from './components/ScrollingMarquee';
+import ChatBot from './components/ChatBot';
 
 const About = lazy(() => import('./components/About'));
 const Services = lazy(() => import('./components/Services'));
@@ -30,6 +31,7 @@ export default function App() {
       <Suspense fallback={<div className="h-20" />}>
         <Footer />
       </Suspense>
+      <ChatBot />
     </div>
   );
 }
