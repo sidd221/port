@@ -15,7 +15,7 @@ const projects = [
     title: "Cafe website (Freelance)",
     description: "Engineered a modern, responsive web presence for Bliss Cafe, blending an inviting visual aesthetic with seamless user navigation.",
     image: "/Cafe.png",
-    technologies: ["React", "Tailwind 4", "Framer Motion", "Vite", "HTML", "CSS3", "Javascript", "SEO", "GEO", "AI-Intigration"],
+    technologies: ["React", "Tailwind 4", "Framer Motion", "Vite", "HTML", "CSS3", "Javascript", "SEO", "GEO", "AI-Integration"],
     demoUrl: "https://sidd221.github.io/Cafe/",
     githubUrl: "#"
   },
@@ -63,7 +63,7 @@ const projects = [
     title: "GrothSpace Digital (A Digital Marketing Company)",
     description: "Empowering brands with cutting‑edge digital marketing solutions built for growth.",
     image: "/grothspace.png",
-    technologies: ["React", "Vite", "Typescript", "Tailwind CSS", "Google AI Studio", "SEO", "GEO", "AI-Intigration", "HTML", "CSS3", "Javascript"],
+    technologies: ["React", "Vite", "Typescript", "Tailwind CSS", "Google AI Studio", "SEO", "GEO", "AI-Integration", "HTML", "CSS3", "Javascript"],
     demoUrl: "https://grothspace-digital.vercel.app/",
     githubUrl: "#"
   },
@@ -71,7 +71,7 @@ const projects = [
     title: "Prisen Project",
     description: "Created a website for a client for their railway project and deployed successfully.",
     image: "/prisen.png",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Google AI Studio", "SEO", "GEO", "AI-Intigration", "HTML", "CSS3", "Javascript"],
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Google AI Studio", "SEO", "GEO", "AI-Integration", "HTML", "CSS3", "Javascript"],
     demoUrl: "https://prisentech.vercel.app/",
     githubUrl: "#"
   }
