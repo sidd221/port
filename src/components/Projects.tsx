@@ -66,6 +66,14 @@ const projects = [
     technologies: ["React", "Vite", "Typescript", "Tailwind CSS", "Google AI Studio", "SEO", "GEO", "AI-Intigration", "HTML", "CSS3", "Javascript"],
     demoUrl: "https://grothspace-digital.vercel.app/",
     githubUrl: "#"
+  },
+  {
+    title: "Prisen Project",
+    description: "Created a website for a client for their railway project and deployed successfully.",
+    image: "/prisen.png",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Google AI Studio", "SEO", "GEO", "AI-Intigration", "HTML", "CSS3", "Javascript"],
+    demoUrl: "https://prisentech.vercel.app/",
+    githubUrl: "#"
   }
 ];
 
@@ -135,10 +143,10 @@ export default function Projects() {
                       ))}
                     </div>
                     {(project.demoUrl !== "#" || project.githubUrl !== "#") && (
-                      <a 
-                        href={project.demoUrl !== "#" ? project.demoUrl : project.githubUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                      <a
+                        href={project.demoUrl !== "#" ? project.demoUrl : project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="relative z-10 flex items-center justify-center gap-2 w-full py-3 mt-auto bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl transition-all hover:shadow-lg hover:shadow-blue-500/25 active:scale-[0.98]"
                       >
                         Open Project <ExternalLink size={18} />
