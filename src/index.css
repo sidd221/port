@@ -46,6 +46,12 @@ body {
   animation: blob 7s infinite;
 }
 
+@media (max-width: 768px) {
+  .animate-blob {
+    animation: none !important;
+  }
+}
+
 .animation-delay-2000 {
   animation-delay: 2s;
 }
@@ -85,4 +91,12 @@ body {
 }
 .gradient-border-stop-hover:hover {
   animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .gradient-border-auto,
+  .gradient-border-hover,
+  .gradient-border-stop-hover {
+    animation: none !important;
+  }
 }
