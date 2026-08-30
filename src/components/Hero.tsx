@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Download } from 'lucide-react';
 
@@ -8,6 +8,8 @@ const Spline = lazy(() => import('@splinetool/react-spline'));
 export default function Hero() {
   const [shouldLoadSpline, setShouldLoadSpline] = useState(false);
   const [isDesktop, setIsDesktop] = useState(() => typeof window !== 'undefined' ? window.innerWidth >= 768 : false);
+  const [isHeroInView, setIsHeroInView] = useState(true);
+  const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const checkDesktop = () => {
@@ -32,15 +34,43 @@ export default function Hero() {
     }
   }, []);
 
+  // Pause Spline rendering when user scrolls down to avoid laptop GPU throttling
+  useEffect(() => {
+    const el = heroRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsHeroInView(entry.isIntersecting);
+      },
+      { threshold: 0.05 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="home" className="min-h-[100dvh] flex items-center justify-center pt-24 md:pt-32 relative overflow-hidden">
+    <section ref={heroRef} id="home" className="min-h-[100dvh] flex items-center justify-center pt-24 md:pt-32 relative overflow-hidden">
       
-      {/* Optimized 3D Spline Scene Background - Strictly desktop only */}
+      {/* Optimized 3D Spline Scene Background - Strictly desktop only, paused when off-screen */}
       {isDesktop && (
-        <div className="hidden md:flex absolute inset-0 w-full h-full z-0 opacity-90 dark:opacity-75 transition-opacity duration-1000 items-center justify-center pointer-events-none">
+        <div 
+          className="hidden md:flex absolute inset-0 w-full h-full z-0 opacity-90 dark:opacity-75 transition-opacity duration-1000 items-center justify-center pointer-events-none"
+          style={{ display: isHeroInView ? 'flex' : 'none' }}
+        >
           {shouldLoadSpline && (
             <Suspense fallback={null}>
-              <Spline scene="https://prod.spline.design/Wr4lqNmLMy1ficxr/scene.splinecode" />
+              <Spline 
+                scene="https://prod.spline.design/Wr4lqNmLMy1ficxr/scene.splinecode" 
+                onLoad={(app) => {
+                  try {
+                    if (app && typeof app.setPixelRatio === 'function') {
+                      app.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
+                    }
+                  } catch (e) {}
+                }}
+              />
             </Suspense>
           )}
         </div>

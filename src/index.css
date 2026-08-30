@@ -81,11 +81,6 @@ body {
 .gradient-border-hover:hover {
   animation: gradient-rotate var(--animation-duration, 5s) linear infinite;
 }
-@media (max-width: 1024px) {
-  .gradient-border-hover {
-    animation: gradient-rotate var(--animation-duration, 5s) linear infinite !important;
-  }
-}
 .gradient-border-stop-hover {
   animation: gradient-rotate var(--animation-duration, 5s) linear infinite;
 }
@@ -93,7 +88,7 @@ body {
   animation-play-state: paused;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (hover: none) {
   .gradient-border-auto,
   .gradient-border-hover,
   .gradient-border-stop-hover {

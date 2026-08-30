@@ -101,7 +101,7 @@ export default function Projects() {
             >
               <BorderRotate
                 className="h-full group"
-                animationMode="auto-rotate"
+                animationMode="rotate-on-hover"
                 borderWidth={1}
                 borderRadius={24}
                 backgroundColor="var(--glass-bg)"
