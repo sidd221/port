@@ -7,68 +7,79 @@ const Spline = lazy(() => import('@splinetool/react-spline'));
 
 export default function Hero() {
   const [shouldLoadSpline, setShouldLoadSpline] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(() => typeof window !== 'undefined' ? window.innerWidth >= 768 : false);
 
   useEffect(() => {
-    const checkDesktop = () => setIsDesktop(window.innerWidth >= 768);
-    checkDesktop(); // Check initially
+    const checkDesktop = () => {
+      const desktop = window.innerWidth >= 768;
+      setIsDesktop(desktop);
+      if (desktop) {
+        setShouldLoadSpline(true);
+      }
+    };
     
     window.addEventListener('resize', checkDesktop);
     return () => window.removeEventListener('resize', checkDesktop);
   }, []);
 
   useEffect(() => {
-    // Delay rendering the 3D scene to prioritize the critical path rendering (text, buttons)
-    // This dramatically improves initial page load speed and Core Web Vitals on both mobile & desktop
-    const timer = setTimeout(() => {
-      setShouldLoadSpline(true);
-    }, 500); // 500ms delay gives enough time for initial paint
-    return () => clearTimeout(timer);
+    // Only load 3D Spline scene on desktop devices after initial UI paint
+    if (typeof window !== 'undefined' && window.innerWidth >= 768) {
+      const timer = setTimeout(() => {
+        setShouldLoadSpline(true);
+      }, 700);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   return (
     <section id="home" className="min-h-[100dvh] flex items-center justify-center pt-24 md:pt-32 relative overflow-hidden">
       
-      {/* Optimized 3D Spline Scene Background - Only visible on desktop/laptop */}
-      <div className="hidden md:flex absolute inset-0 w-full h-full z-0 opacity-90 dark:opacity-75 transition-opacity duration-1000 items-center justify-center">
-        {(shouldLoadSpline && isDesktop) && (
-          <Suspense fallback={null}>
-            <Spline scene="https://prod.spline.design/Wr4lqNmLMy1ficxr/scene.splinecode" />
-          </Suspense>
-        )}
-      </div>
+      {/* Optimized 3D Spline Scene Background - Strictly desktop only */}
+      {isDesktop && (
+        <div className="hidden md:flex absolute inset-0 w-full h-full z-0 opacity-90 dark:opacity-75 transition-opacity duration-1000 items-center justify-center pointer-events-none">
+          {shouldLoadSpline && (
+            <Suspense fallback={null}>
+              <Spline scene="https://prod.spline.design/Wr4lqNmLMy1ficxr/scene.splinecode" />
+            </Suspense>
+          )}
+        </div>
+      )}
 
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/30 dark:bg-indigo-500/10 rounded-full mix-blend-multiply filter blur-[100px] animate-blob"></div>
-      <div className="absolute top-1/3 -left-10 w-72 h-72 bg-purple-500/30 dark:bg-purple-500/10 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-2000"></div>
-      <div className="absolute -bottom-8 left-20 w-72 h-72 bg-emerald-500/30 dark:bg-emerald-500/10 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-4000"></div>
+      {/* Background decoration - Lightweight and non-blocking */}
+      <div className="pointer-events-none hidden md:block absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 dark:bg-indigo-500/10 rounded-full filter blur-[80px]"></div>
+      <div className="pointer-events-none hidden md:block absolute top-1/3 -left-10 w-72 h-72 bg-purple-500/20 dark:bg-purple-500/10 rounded-full filter blur-[80px]"></div>
+      <div className="pointer-events-none hidden md:block absolute -bottom-8 left-20 w-72 h-72 bg-emerald-500/20 dark:bg-emerald-500/10 rounded-full filter blur-[80px]"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           className="flex flex-col items-center"
         >
           {/* Mobile Coding & Freelance Hero Visual - Visible on mobile only */}
           <div className="md:hidden flex flex-col items-center mb-6 relative">
             <div className="relative group max-w-[260px] xs:max-w-[290px] mx-auto">
-              {/* Vibrant ambient glow */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 rounded-2xl blur-lg opacity-60 dark:opacity-40 animate-pulse"></div>
+              {/* Static vibrant ambient glow (no continuous GPU repaint) */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 rounded-2xl blur-md opacity-40"></div>
               
               {/* Image Container */}
-              <div className="relative rounded-2xl overflow-hidden border border-white/20 dark:border-white/10 shadow-2xl bg-slate-900/60 backdrop-blur-sm">
+              <div className="relative rounded-2xl overflow-hidden border border-white/20 dark:border-white/10 shadow-xl bg-slate-900/60">
                 <img 
                   src="/hero-mobile.jpg" 
                   alt="Freelance Developer & Coding" 
-                  className="w-full h-auto aspect-square object-cover rounded-2xl transform hover:scale-105 transition-transform duration-500"
+                  className="w-full h-auto aspect-square object-cover rounded-2xl"
                   width={300}
                   height={300}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
                 
                 {/* Floating pill badge */}
                 <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 px-3 py-1 bg-slate-950/85 backdrop-blur-md border border-cyan-500/30 text-[11px] font-mono text-cyan-300 rounded-full flex items-center gap-1.5 shadow-lg whitespace-nowrap">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                  <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
                   <span>Freelance Dev & AI</span>
                 </div>
               </div>

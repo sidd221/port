@@ -140,3 +140,15 @@
   z-index: 1;
   height: 100%;
 }
+
+@media (hover: none), (max-width: 768px) {
+  .border-glow-card {
+    transform: none !important;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 12px !important;
+  }
+  .border-glow-card::before,
+  .border-glow-card::after,
+  .border-glow-card > .edge-light {
+    display: none !important;
+  }
+}
