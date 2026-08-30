@@ -48,7 +48,33 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="flex flex-col items-center"
         >
+          {/* Mobile Coding & Freelance Hero Visual - Visible on mobile only */}
+          <div className="md:hidden flex flex-col items-center mb-6 relative">
+            <div className="relative group max-w-[260px] xs:max-w-[290px] mx-auto">
+              {/* Vibrant ambient glow */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 rounded-2xl blur-lg opacity-60 dark:opacity-40 animate-pulse"></div>
+              
+              {/* Image Container */}
+              <div className="relative rounded-2xl overflow-hidden border border-white/20 dark:border-white/10 shadow-2xl bg-slate-900/60 backdrop-blur-sm">
+                <img 
+                  src="/hero-mobile.jpg" 
+                  alt="Freelance Developer & Coding" 
+                  className="w-full h-auto aspect-square object-cover rounded-2xl transform hover:scale-105 transition-transform duration-500"
+                  width={300}
+                  height={300}
+                />
+                
+                {/* Floating pill badge */}
+                <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 px-3 py-1 bg-slate-950/85 backdrop-blur-md border border-cyan-500/30 text-[11px] font-mono text-cyan-300 rounded-full flex items-center gap-1.5 shadow-lg whitespace-nowrap">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                  <span>Freelance Dev & AI</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <span className="inline-block py-1.5 px-4 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium mb-8 shadow-sm">
             Available for new opportunities
           </span>
