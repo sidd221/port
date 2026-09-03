@@ -2,14 +2,21 @@ import { Suspense, lazy, useEffect, useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Download } from 'lucide-react';
 
-// Lazy load spline to ensure it doesn't block the main JS bundle
-const Spline = lazy(() => import('@splinetool/react-spline'));
+// Pre-warm Spline bundle on desktop immediately without blocking main execution
+const splineLoader = typeof window !== 'undefined' && window.innerWidth >= 768
+  ? import('@splinetool/react-spline')
+  : null;
+
+const Spline = lazy(() => splineLoader || import('@splinetool/react-spline'));
 
 export default function Hero() {
-  const [shouldLoadSpline, setShouldLoadSpline] = useState(false);
   const [isDesktop, setIsDesktop] = useState(() => typeof window !== 'undefined' ? window.innerWidth >= 768 : false);
+  const [shouldLoadSpline, setShouldLoadSpline] = useState(() => typeof window !== 'undefined' ? window.innerWidth >= 768 : false);
+  const [isRobotLoaded, setIsRobotLoaded] = useState(false);
   const [isHeroInView, setIsHeroInView] = useState(true);
+  const [isBlinking, setIsBlinking] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
+  const heroImgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     const checkDesktop = () => {
@@ -22,16 +29,6 @@ export default function Hero() {
     
     window.addEventListener('resize', checkDesktop);
     return () => window.removeEventListener('resize', checkDesktop);
-  }, []);
-
-  useEffect(() => {
-    // Only load 3D Spline scene on desktop devices after initial UI paint
-    if (typeof window !== 'undefined' && window.innerWidth >= 768) {
-      const timer = setTimeout(() => {
-        setShouldLoadSpline(true);
-      }, 700);
-      return () => clearTimeout(timer);
-    }
   }, []);
 
   // Pause Spline rendering when user scrolls down to avoid laptop GPU throttling
@@ -50,13 +47,57 @@ export default function Hero() {
     return () => observer.disconnect();
   }, []);
 
+  // Green dot starts blinking strictly 5 seconds after proper loading of the website & hero visual
+  useEffect(() => {
+    let blinkTimer: ReturnType<typeof setTimeout>;
+    let fallbackTimer: ReturnType<typeof setTimeout>;
+    let countdownStarted = false;
+
+    const startCountdown = () => {
+      if (countdownStarted) return;
+      countdownStarted = true;
+      blinkTimer = setTimeout(() => {
+        setIsBlinking(true);
+      }, 5000);
+    };
+
+    const onProperHeroLoad = () => {
+      const img = heroImgRef.current;
+      if (img && !img.complete) {
+        const onImgDone = () => startCountdown();
+        img.addEventListener('load', onImgDone, { once: true });
+        img.addEventListener('error', onImgDone, { once: true });
+      } else {
+        startCountdown();
+      }
+    };
+
+    if (document.readyState === 'complete') {
+      onProperHeroLoad();
+    } else {
+      window.addEventListener('load', onProperHeroLoad, { once: true });
+    }
+
+    // Safety fallback: in case window load event was already settled before listener
+    fallbackTimer = setTimeout(onProperHeroLoad, 2500);
+
+    return () => {
+      countdownStarted = true;
+      clearTimeout(blinkTimer);
+      clearTimeout(fallbackTimer);
+      window.removeEventListener('load', onProperHeroLoad);
+    };
+  }, []);
+
   return (
     <section ref={heroRef} id="home" className="min-h-[100dvh] flex items-center justify-center pt-24 md:pt-32 relative overflow-hidden">
       
       {/* Optimized 3D Spline Scene Background - Strictly desktop only, paused when off-screen */}
       {isDesktop && (
         <div 
-          className="hidden md:flex absolute inset-0 w-full h-full z-0 opacity-90 dark:opacity-75 transition-opacity duration-1000 items-center justify-center pointer-events-none"
+          className={`hidden md:flex absolute inset-0 w-full h-full z-0 transition-opacity duration-700 items-center justify-center pointer-events-none ${
+            isRobotLoaded ? 'opacity-90 dark:opacity-75' : 'opacity-0'
+          }`}
           style={{ display: isHeroInView ? 'flex' : 'none' }}
         >
           {shouldLoadSpline && (
@@ -69,6 +110,7 @@ export default function Hero() {
                       app.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
                     }
                   } catch (e) {}
+                  setIsRobotLoaded(true);
                 }}
               />
             </Suspense>
@@ -77,6 +119,7 @@ export default function Hero() {
       )}
 
       {/* Background decoration - Lightweight and non-blocking */}
+      <div className="pointer-events-none hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-indigo-500/10 dark:bg-indigo-600/15 rounded-full filter blur-[90px]"></div>
       <div className="pointer-events-none hidden md:block absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 dark:bg-indigo-500/10 rounded-full filter blur-[80px]"></div>
       <div className="pointer-events-none hidden md:block absolute top-1/3 -left-10 w-72 h-72 bg-purple-500/20 dark:bg-purple-500/10 rounded-full filter blur-[80px]"></div>
       <div className="pointer-events-none hidden md:block absolute -bottom-8 left-20 w-72 h-72 bg-emerald-500/20 dark:bg-emerald-500/10 rounded-full filter blur-[80px]"></div>
@@ -97,6 +140,7 @@ export default function Hero() {
               {/* Image Container */}
               <div className="relative rounded-2xl overflow-hidden border border-white/20 dark:border-white/10 shadow-xl bg-slate-900/60">
                 <img 
+                  ref={heroImgRef}
                   src="/hero-mobile.jpg" 
                   alt="Freelance Developer & Coding" 
                   className="w-full h-auto aspect-square object-cover rounded-2xl"
@@ -109,7 +153,16 @@ export default function Hero() {
                 
                 {/* Floating pill badge */}
                 <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 px-3 py-1 bg-slate-950/85 backdrop-blur-md border border-cyan-500/30 text-[11px] font-mono text-cyan-300 rounded-full flex items-center gap-1.5 shadow-lg whitespace-nowrap">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  <span className="relative flex h-2 w-2 items-center justify-center">
+                    {isBlinking && (
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    )}
+                    <span 
+                      className={`relative inline-flex rounded-full h-2 w-2 bg-emerald-400 transition-all duration-300 ${
+                        isBlinking ? 'animate-dot-blink' : ''
+                      }`} 
+                    />
+                  </span>
                   <span>Freelance Dev & AI</span>
                 </div>
               </div>
