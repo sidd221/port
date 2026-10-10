@@ -74,6 +74,14 @@ const projects = [
     technologies: ["React", "TypeScript", "Tailwind CSS", "Google AI Studio", "SEO", "GEO", "AI-Integration", "HTML", "CSS3", "Javascript"],
     demoUrl: "https://prisentech.vercel.app/",
     githubUrl: "#"
+  },
+  {
+    title: "Dr. B. Bhattacharyya Clinic",
+    description: "Created a website for a client for their homeopathic clinic and deployed successfully.",
+    image: "/bhattacharyaclinic.png",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Google AI Studio", "SEO", "GEO", "AI-Integration", "HTML", "CSS3", "Javascript"],
+    demoUrl: "https://bhattacharyaclinic.vercel.app",
+    githubUrl: "#"
   }
 ];
 
