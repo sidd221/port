@@ -43,8 +43,11 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-medium text-slate-600 dark:text-slate-400">
             <a href="#home" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</a>
             <a href="#about" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
-            <a href="#skills" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</a>
+            <a href="#services" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</a>
+            <a href="#experience" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Experience</a>
             <a href="#portfolio" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Portfolio</a>
+            <a href="#certificates" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Certificates</a>
+            <a href="#contact" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
           </div>
 
           <div className="flex gap-4">

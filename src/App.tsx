@@ -6,6 +6,7 @@ import ChatBot from './components/ChatBot';
 
 const About = lazy(() => import('./components/About'));
 const Services = lazy(() => import('./components/Services'));
+const Experience = lazy(() => import('./components/Experience'));
 const Projects = lazy(() => import('./components/Projects'));
 const Certificates = lazy(() => import('./components/Certificates'));
 const Contact = lazy(() => import('./components/Contact'));
@@ -22,6 +23,7 @@ export default function App() {
         <Suspense fallback={<div className="h-40 flex items-center justify-center">Loading...</div>}>
           <About />
           <Services />
+          <Experience />
           <Projects />
           <Certificates />
           <Contact />

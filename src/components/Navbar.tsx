@@ -15,7 +15,7 @@ export default function Navbar() {
         window.requestAnimationFrame(() => {
           setIsScrolled(window.scrollY > 50);
 
-          const sections = ['home', 'about', 'services', 'portfolio', 'certificates', 'contact'];
+          const sections = ['home', 'about', 'services', 'experience', 'portfolio', 'certificates', 'contact'];
           const scrollPosition = window.scrollY + 120; // offset
 
           for (const section of sections) {
@@ -45,6 +45,7 @@ export default function Navbar() {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#services' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Portfolio', href: '#portfolio' },
     { name: 'Certificates', href: '#certificates' },
     { name: 'Contact', href: '#contact' },

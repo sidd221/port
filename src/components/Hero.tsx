@@ -190,7 +190,7 @@ export default function Hero() {
             I craft visually stunning, high-performing websites powered by modern tech and intelligent AI automation, helping progressive brands grow and dominate.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="/SiddhantSinhag.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-3 bg-indigo-600 text-white rounded-xl font-semibold hover:scale-105 transition-all flex items-center justify-center gap-2 group shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40">
+            <a href="/siddhant_sinha_res.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-3 bg-indigo-600 text-white rounded-xl font-semibold hover:scale-105 transition-all flex items-center justify-center gap-2 group shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40">
               Download Resume
               <Download className="group-hover:translate-y-1 transition-transform" size={18} />
             </a>
